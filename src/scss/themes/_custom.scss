@@ -1,3 +1,56 @@
+.pcoded-navbar.menu-light .pcoded-submenu {
+  background: var(--sidebar-color) !important;
+  color: var(--sidebar-text-color, #222) !important;
+}
+.pcoded-navbar.menu-light .pcoded-submenu a {
+  color: var(--sidebar-text-color, #222) !important;
+}
+.pcoded-navbar {
+  background: var(--sidebar-color) !important;
+  color: var(--sidebar-text-color, #222) !important;
+}
+.pcoded-navbar .nav-link,
+.pcoded-navbar .menu-label,
+.pcoded-navbar .pcoded-inner-navbar > li > a {
+  color: var(--sidebar-text-color, #fff) !important;
+}
+// Theme CSS variables for dynamic color switching
+:root {
+  --primary-color: #4099ff;
+  --header-color: #4099ff;
+  --sidebar-color: #f8f9fa;
+  --sidebar-text-color: #222;
+  --navHeader-color: #4099ff;
+}
+
+.btn-primary {
+  background: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+}
+.navbar,
+.pcoded-header,
+.header-blue {
+  background: var(--header-color) !important;
+}
+.pcoded-navbar {
+  background: var(--sidebar-color) !important;
+  color: var(--sidebar-text-color, #222) !important;
+}
+
+body.dark-mode {
+  --primary-color: #222;
+  --header-color: #222;
+  --sidebar-color: #263238;
+  --sidebar-text-color: #fff;
+  --navHeader-color: #222;
+  background: #181a1b !important;
+  color: #eee !important;
+}
+
+.nav-header,
+.m-header {
+  background: var(--navHeader-color) !important;
+}
 .btn-page .btn {
   margin-right: 8px;
 }
@@ -11,6 +64,26 @@
     margin-bottom: 1rem;
 
     .nav-item {
+.theme-switcher-panel {
+  position: fixed;
+  top: 50%;
+  right: -420px;
+  transform: translateY(-50%);
+  width: 400px;
+  max-width: 90vw;
+  background: #fff;
+  box-shadow: 0 2px 24px rgba(0,0,0,0.18);
+  border-radius: 16px 0 0 16px;
+  z-index: 1051;
+  transition: right 0.4s cubic-bezier(.4,0,.2,1);
+  padding: 2rem;
+}
+.theme-switcher-panel.open {
+  right: 0;
+}
+.theme-switcher-btn.hide {
+  display: none !important;
+}
       text-align: center;
     }
   }

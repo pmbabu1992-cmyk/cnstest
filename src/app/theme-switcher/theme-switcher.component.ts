@@ -24,11 +24,17 @@ export class ThemeSwitcherComponent {
     { value: 'light', label: 'Light' },
     { value: 'dark', label: 'Dark' }
   ];
+  btnVisible = true;
 
   togglePanel() {
     this.isOpen = !this.isOpen;
+    this.btnVisible = !this.isOpen;
   }
 
+  hideBtn() {
+    this.btnVisible = false;
+    this.isOpen = false;
+  }
   setMode(mode: string) {
     this.mode = mode;
     document.body.classList.toggle('dark-mode', mode === 'dark');
@@ -37,8 +43,26 @@ export class ThemeSwitcherComponent {
   setColor(type: string, color: string) {
     if (type === 'primary') this.primaryColor = color;
     if (type === 'header') this.headerColor = color;
-    if (type === 'sidebar') this.sidebarColor = color;
+    if (type === 'sidebar') {
+      this.sidebarColor = color;
+      document.documentElement.style.setProperty('--sidebar-color', color);
+      // Auto-contrast for sidebar text
+      const isLight = this.isColorLight(color);
+      document.documentElement.style.setProperty('--sidebar-text-color', isLight ? '#222' : '#fff');
+      return;
+    }
     if (type === 'navHeader') this.navHeaderColor = color;
     document.documentElement.style.setProperty(`--${type}-color`, color);
+  }
+
+  // Utility: check if color is light
+  isColorLight(hex: string): boolean {
+    hex = hex.replace('#', '');
+    if (hex.length === 3) hex = hex.split('').map(x => x + x).join('');
+    const r = parseInt(hex.substr(0,2),16);
+    const g = parseInt(hex.substr(2,2),16);
+    const b = parseInt(hex.substr(4,2),16);
+    // Perceived brightness formula
+    return (r*0.299 + g*0.587 + b*0.114) > 186;
   }
 }
