@@ -64,6 +64,12 @@ export const NavigationItems: NavigationItem[] = [
             type: 'item',
             url: '/component/breadcrumb-paging'
           },
+                    {
+            id: 'device-configuration',
+            title: 'Device Configuration',
+            type: 'item',
+            url: '/component/device-configuration'
+          },
           {
             id: 'collapse',
             title: 'Collapse',

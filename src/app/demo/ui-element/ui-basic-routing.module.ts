@@ -28,6 +28,10 @@ const routes: Routes = [
       {
         path: 'typography',
         loadComponent: () => import('./typography/typography.component')
+      },
+      {
+        path: 'device-configuration',
+        loadComponent: () => import('./device-configuration/device-configuration.component').then(m => m.DeviceConfigurationComponent)
       }
     ]
   }
