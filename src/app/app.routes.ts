@@ -1,12 +1,8 @@
-// Angular Import
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-
-// project import
+import { Routes } from '@angular/router';
 import { AdminComponent } from './theme/layout/admin/admin.component';
 import { GuestComponent } from './theme/layout/guest/guest.component';
 
-const routes: Routes = [
+export const routes: Routes = [
   {
     path: '',
     component: AdminComponent,
@@ -22,7 +18,10 @@ const routes: Routes = [
       },
       {
         path: 'component',
-        loadChildren: () => import('./demo/ui-element/ui-basic.module').then((m) => m.UiBasicModule)
+                loadChildren: () => import('./demo/ui-element/ui-basic.module').then((m) => m.UiBasicModule)
+        // children: [
+        //   ...require('./demo/ui-element/ui-basic.routes').uiBasicRoutes
+        // ]
       },
       {
         path: 'chart',
@@ -57,9 +56,3 @@ const routes: Routes = [
     ]
   }
 ];
-
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
-})
-export class AppRoutingModule {}
