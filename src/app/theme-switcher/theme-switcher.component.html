@@ -1,0 +1,44 @@
+<button class="theme-switcher-btn" (click)="togglePanel()">
+  <i class="fa fa-paint-brush"></i>
+</button>
+<div class="theme-switcher-panel" [class.open]="isOpen">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="fw-bold mb-0">Pick your style</h5>
+    <button class="btn btn-light btn-sm" (click)="togglePanel()"><i class="fa fa-times"></i></button>
+  </div>
+  <ul class="nav nav-tabs mb-3">
+    <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab">Theme</a></li>
+    <li class="nav-item"><a class="nav-link" data-bs-toggle="tab">Header</a></li>
+    <li class="nav-item"><a class="nav-link" data-bs-toggle="tab">Content</a></li>
+  </ul>
+  <div class="mb-3">
+    <label class="form-label">Background</label>
+    <select class="form-select" [(ngModel)]="mode" (change)="setMode(mode)">
+      <option *ngFor="let m of modes" [value]="m.value">{{ m.label }}</option>
+    </select>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Primary Color</label>
+    <div class="d-flex flex-wrap gap-2">
+      <span *ngFor="let color of colors" class="color-swatch" [style.background]="color" (click)="setColor('primary', color)"></span>
+    </div>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Navigation Header</label>
+    <div class="d-flex flex-wrap gap-2">
+      <span *ngFor="let color of colors" class="color-swatch" [style.background]="color" (click)="setColor('navHeader', color)"></span>
+    </div>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Header</label>
+    <div class="d-flex flex-wrap gap-2">
+      <span *ngFor="let color of colors" class="color-swatch" [style.background]="color" (click)="setColor('header', color)"></span>
+    </div>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Sidebar</label>
+    <div class="d-flex flex-wrap gap-2">
+      <span *ngFor="let color of colors" class="color-swatch" [style.background]="color" (click)="setColor('sidebar', color)"></span>
+    </div>
+  </div>
+</div>

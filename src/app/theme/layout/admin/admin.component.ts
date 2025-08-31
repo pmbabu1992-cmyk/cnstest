@@ -9,10 +9,11 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { BreadcrumbComponent } from '../../shared/components/breadcrumb/breadcrumb.component';
 import { Footer } from './footer/footer';
+import { ThemeSwitcherComponent } from '../../../theme-switcher/theme-switcher.component';
 
 @Component({
   selector: 'app-admin',
-  imports: [ConfigurationComponent, RouterModule, NavBarComponent, NavigationComponent, CommonModule, BreadcrumbComponent, Footer],
+  imports: [ConfigurationComponent, RouterModule, NavBarComponent, NavigationComponent, CommonModule, BreadcrumbComponent, Footer, ThemeSwitcherComponent],
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.scss']
 })
