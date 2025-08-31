@@ -1,5 +1,13 @@
 <ul class="navbar-nav ms-auto">
   <li>
+    <div class="dropdown">
+      <!-- <label for="themeSelect" class="me-2">Theme:</label> -->
+      <select id="themeSelect" class="form-select form-select-sm" [(ngModel)]="selectedTheme" (change)="applyTheme(selectedTheme)">
+        <option *ngFor="let theme of themeOptions" [value]="theme.value" [style.background]="theme.value" [style.color]="theme.text">{{ theme.name }}</option>
+      </select>
+    </div>
+  </li>
+  <li>
     <div class="dropdown" ngbDropdown placement="auto">
       <a ngbDropdownToggle href="javascript:">
         <i class="icon feather icon-bell" title="Notification"></i>

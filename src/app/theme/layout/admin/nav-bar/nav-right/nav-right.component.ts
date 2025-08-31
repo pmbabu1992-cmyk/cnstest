@@ -28,19 +28,34 @@ import { ChatMsgComponent } from './chat-msg/chat-msg.component';
   ]
 })
 export class NavRightComponent {
-  // public props
   visibleUserList: boolean;
   chatMessage: boolean;
   friendId!: number;
 
-  // constructor
+  themeOptions = [
+    { name: 'Light', value: '#ffffff', text: '#263238' },
+    { name: 'Dark', value: '#263238', text: '#eceff1' },
+    { name: 'Blue', value: '#4099ff', text: '#fff' },
+    { name: 'Green', value: '#2ed8b6', text: '#fff' },
+    { name: 'Purple', value: '#7759de', text: '#fff' },
+    { name: 'Orange', value: '#ffb64d', text: '#fff' },
+    { name: 'Red', value: '#ff5370', text: '#fff' },
+    { name: 'Teal', value: '#00bcd4', text: '#fff' },
+    { name: 'Gray', value: '#748892', text: '#fff' },
+    { name: 'Default', value: '#eceff1', text: '#263238' }
+  ];
+  selectedTheme: string = '#ffffff';
+
   constructor() {
     this.visibleUserList = false;
     this.chatMessage = false;
+    this.applyTheme(this.selectedTheme);
   }
 
-  // public method
-  // eslint-disable-next-line
+  applyTheme(color: string) {
+    document.body.style.background = color;
+  }
+
   onChatToggle(friendID: any) {
     this.friendId = friendID;
     this.chatMessage = !this.chatMessage;

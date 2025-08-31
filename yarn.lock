@@ -144,7 +144,7 @@
     "@angular-devkit/core" "20.2.0"
     rxjs "7.8.2"
 
-"@angular-devkit/build-angular@20.2.0":
+"@angular-devkit/build-angular@^20.2.0":
   version "20.2.0"
   resolved "https://registry.npmjs.org/@angular-devkit/build-angular/-/build-angular-20.2.0.tgz"
   integrity sha512-B3dlR9AnANyT8yfESODFYEDEGV6pMwozsfjsH0NFxrdrfB1BYTBKpgYkQWg2I1j48hf7YmetZgA1sa3gYOt1QQ==
